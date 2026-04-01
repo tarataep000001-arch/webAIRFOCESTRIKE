@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #040405;
+  --foreground: #f3eee4;
+  --foreground-soft: #b9b0a1;
+  --panel: #0c0c0f;
+  --panel-strong: #111116;
+  --gold: #c8a24a;
+  --gold-light: #e0c06b;
+  --gold-soft: rgba(200, 162, 74, 0.14);
+  --silver: #dfe5ee;
+  --strike: #a91f2d;
+  --strike-soft: rgba(169, 31, 45, 0.16);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-panel: var(--panel);
+  --color-panel-strong: var(--panel-strong);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-soft: var(--gold-soft);
+  --color-silver: var(--silver);
+  --color-strike: var(--strike);
+  --color-strike-soft: var(--strike-soft);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-cinzel);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(200, 162, 74, 0.1), transparent 26%),
+    radial-gradient(circle at 85% 8%, rgba(169, 31, 45, 0.1), transparent 22%),
+    radial-gradient(circle at bottom center, rgba(200, 162, 74, 0.04), transparent 38%),
+    linear-gradient(180deg, #040405 0%, #070708 48%, #040405 100%);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+::selection {
+  background: rgba(200, 162, 74, 0.28);
+  color: var(--foreground);
+}
