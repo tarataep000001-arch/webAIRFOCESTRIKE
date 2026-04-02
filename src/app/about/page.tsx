@@ -38,6 +38,7 @@ export default function AboutPage() {
         eyebrow="About AIR FORCE STRIKE"
         title="A progression-based air combat game designed to feel elite"
         description={`${siteName} focuses on strategic upgrades, mission progression, and unlocking stronger maps over time.`}
+        showAside={false}
         primaryCta={{ href: "/gameplay", label: "Explore Gameplay" }}
         secondaryCta={{ href: "/aircraft", label: "View Aircraft" }}
       />

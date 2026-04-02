@@ -36,6 +36,7 @@ export default function AircraftPage() {
         eyebrow="Aircraft roster"
         title="Rarity tiers that shape the entire experience"
         description="Aircraft progression is one of the core systems of the game, and every tier should feel like a meaningful step forward."
+        showAside={false}
         primaryCta={{ href: "/maps", label: "View Maps" }}
         secondaryCta={{ href: "/rewards", label: "View Rewards" }}
       />

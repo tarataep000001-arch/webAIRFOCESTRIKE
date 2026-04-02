@@ -158,26 +158,8 @@ export default function RoadmapPage() {
         eyebrow="Roadmap"
         title="ROADMAP - AIR FORCE STRIKE (AFS)"
         description="แผนพัฒนาของเกมที่เน้นการวางระบบเกมหลัก การสะสมเครื่องบิน เศรษฐกิจภายในเกม ไปจนถึงคอนเทนต์ระยะยาว"
-      >
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-gold/15 bg-white/[0.03] p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/80">
-              Roadmap at a glance
-            </p>
-            <p className="mt-2 text-sm leading-7 text-foreground-soft">
-              10 phases cover foundation, gameplay, upgrades, economy, marketplace, competition, social retention, and expansion.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-gold/15 bg-white/[0.03] p-4 text-sm leading-7 text-foreground-soft">
-              Clear milestone plan
-            </div>
-            <div className="rounded-2xl border border-gold/15 bg-white/[0.03] p-4 text-sm leading-7 text-foreground-soft">
-              Highlighted phase cards
-            </div>
-          </div>
-        </div>
-      </PageHero>
+        showAside={false}
+      />
 
       <section className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <SectionTitle
