@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/data/navigation";
@@ -19,8 +20,15 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-gold/15 bg-black/85 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
         <Link href="/" className="group flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gold/30 bg-gold/10 text-sm font-semibold tracking-[0.3em] text-gold transition group-hover:-translate-y-0.5">
-            AF
+          <span className="relative flex h-11 w-11 overflow-hidden rounded-2xl border border-gold/30 bg-gold/10 transition group-hover:-translate-y-0.5">
+            <Image
+              src="/images/air-force-strike-logo.jpg"
+              alt="AIR FORCE STRIKE logo"
+              fill
+              sizes="44px"
+              className="object-contain"
+              priority
+            />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-semibold tracking-[0.22em] text-silver sm:text-lg">
