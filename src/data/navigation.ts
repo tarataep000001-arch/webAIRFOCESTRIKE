@@ -12,6 +12,7 @@ export const navigation: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/aircraft", label: "Aircraft" },
+  { href: "/roadmap", label: "Roadmap" },
 ];
 
 export const footerLinks = navigation;
