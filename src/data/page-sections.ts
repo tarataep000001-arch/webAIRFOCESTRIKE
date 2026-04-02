@@ -93,58 +93,6 @@ export const pageSections = {
       description: "How tiers drive future unlocks.",
     },
   ] satisfies PageSection[],
-  roadmap: [
-    {
-      label: "Phase 1",
-      href: "#phase-1",
-      description: "Foundation and core setup.",
-    },
-    {
-      label: "Phase 2",
-      href: "#phase-2",
-      description: "Core gameplay systems.",
-    },
-    {
-      label: "Phase 3",
-      href: "#phase-3",
-      description: "Upgrade system.",
-    },
-    {
-      label: "Phase 4",
-      href: "#phase-4",
-      description: "Reward economy.",
-    },
-    {
-      label: "Phase 5",
-      href: "#phase-5",
-      description: "Box and collection systems.",
-    },
-    {
-      label: "Phase 6",
-      href: "#phase-6",
-      description: "Marketplace features.",
-    },
-    {
-      label: "Phase 7",
-      href: "#phase-7",
-      description: "Competitive features.",
-    },
-    {
-      label: "Phase 8",
-      href: "#phase-8",
-      description: "Special content.",
-    },
-    {
-      label: "Phase 9",
-      href: "#phase-9",
-      description: "Social and retention.",
-    },
-    {
-      label: "Phase 10",
-      href: "#phase-10",
-      description: "Expansion plans.",
-    },
-  ] satisfies PageSection[],
   maps: [
     {
       label: "Zone Structure",

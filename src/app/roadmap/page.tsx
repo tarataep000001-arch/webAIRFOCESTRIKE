@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { FeatureCard } from "@/components/feature-card";
 import { PageHero } from "@/components/page-hero";
-import { PageSectionNav } from "@/components/page-section-nav";
 import { SectionTitle } from "@/components/section-title";
-import { pageSections } from "@/data/page-sections";
 
 export const metadata: Metadata = {
   title: "Roadmap",
@@ -180,12 +178,6 @@ export default function RoadmapPage() {
           </div>
         </div>
       </PageHero>
-
-      <PageSectionNav
-        title="Roadmap guide"
-        description="Use the anchors below to jump directly to each development phase."
-        sections={pageSections.roadmap}
-      />
 
       <section className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <SectionTitle
