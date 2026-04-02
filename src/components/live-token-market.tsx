@@ -135,14 +135,14 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/70">
-                Trend visualization
+                การแสดงภาพการต่อสู้
               </p>
               <p className="mt-1 text-sm text-foreground-soft">
-                A live trend snapshot based on current market momentum windows.
+                นี่คือจุดเริ่มต้นของ V1 ที่เน้นทักษะและความเร็วในการกดเพื่อเอาชนะ
               </p>
             </div>
             <div className="hidden rounded-full border border-gold/15 bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/75 sm:block">
-              Updated every 15s
+              เตรียมอัปเดตสู่ V2
             </div>
           </div>
           <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-gold/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.18))] p-3">
@@ -182,7 +182,7 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
                 <circle cx="100" cy="26" r="1.8" fill="#e0c06b" />
               </svg>
               <div className="absolute bottom-4 left-4 rounded-full border border-gold/20 bg-black/65 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/80">
-                Momentum snapshot
+                ภาพรวมเครื่องบิน
               </div>
             </div>
           </div>
@@ -268,10 +268,10 @@ function MarketTable({ pair }: { pair: MarketPairSummary | null }) {
     <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-5 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
       <div className="border-b border-gold/15 pb-4">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
-          Market data table
+          Aircraft balance table
         </p>
         <p className="mt-2 text-sm leading-7 text-foreground-soft">
-          Selected pair is the highest-liquidity World Chain market for the AIR FORCE STRIKE token.
+          Use this panel as a gameplay preview for aircraft ATK, battle rhythm, and future tuning across versions.
         </p>
       </div>
 
@@ -417,9 +417,9 @@ export function LiveTokenMarket() {
   return (
     <HomeSectionBlock
       id="live-token-market"
-      label="LIVE TOKEN MARKET"
-      title="Real-time token data on World Chain"
-      description="The selected pair is refreshed every 15 seconds and chosen by highest liquidity so the homepage always shows the strongest available market reference."
+      label="GAME OVERVIEW"
+      title="เกมที่ใช้ทักษะในการกดและความเร็ว"
+      description="นี่คือจุดเริ่มต้นของ V1 และใน V2 เราจะอัปเดตให้ใช้ทักษะมากขึ้น พร้อมเพิ่มด่านให้มากขึ้น โดยเครื่องบินแต่ละลำจะมีค่า ATK และจำนวนรอบที่ออกต่อสู้ไม่เท่ากัน"
     >
       <div className="mb-6 flex flex-wrap items-center gap-3">
         <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
@@ -472,8 +472,8 @@ export function LiveTokenMarket() {
 
       <p className="mt-4 text-xs font-medium uppercase tracking-[0.28em] text-gold/60">
         {error && pair
-          ? `Showing the last successful market snapshot. ${error}`
-          : "Market data is sourced from Dexscreener and rendered as a live pair dashboard."}
+          ? `Showing the last successful dashboard snapshot. ${error}`
+          : "Dashboard overview for gameplay preview, skill timing, and aircraft progression."}
       </p>
     </HomeSectionBlock>
   );

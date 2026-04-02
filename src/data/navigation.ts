@@ -11,11 +11,7 @@ export type NavLink = {
 export const navigation: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/gameplay", label: "Gameplay" },
   { href: "/aircraft", label: "Aircraft" },
-  { href: "/maps", label: "Maps" },
-  { href: "/rewards", label: "Rewards" },
-  { href: "/market", label: "Market" },
 ];
 
 export const footerLinks = navigation;

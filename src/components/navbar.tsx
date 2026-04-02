@@ -49,15 +49,6 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link
-            href="/gameplay"
-            className="inline-flex items-center justify-center rounded-full border border-gold/35 bg-gold/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] text-gold transition hover:-translate-y-0.5 hover:bg-gold/15"
-          >
-            Explore Gameplay
-          </Link>
-        </div>
-
         <details className="group relative lg:hidden">
           <summary className="list-none cursor-pointer rounded-full border border-gold/25 bg-white/[0.03] px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] text-gold [&::-webkit-details-marker]:hidden">
             Menu
@@ -78,12 +69,6 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/gameplay"
-                className="mt-2 rounded-2xl bg-gold px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-black"
-              >
-                Explore Gameplay
-              </Link>
             </nav>
           </div>
         </details>

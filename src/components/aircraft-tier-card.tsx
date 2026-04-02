@@ -2,11 +2,47 @@ import type { AircraftTier } from "@/data/aircraft";
 
 type AircraftTierCardProps = {
   tier: AircraftTier;
+  compact?: boolean;
 };
 
-export function AircraftTierCard({ tier }: AircraftTierCardProps) {
+export function AircraftTierCard({ tier, compact = false }: AircraftTierCardProps) {
   const videoSources = tier.videoSources?.length ? tier.videoSources : [tier.videoSrc];
   const totalSlots = 4;
+
+  if (compact) {
+    return (
+      <article className="group rounded-[1.6rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(18,18,20,0.98),rgba(8,8,10,0.98))] p-4 shadow-[0_0_0_1px_rgba(212,175,55,0.05)] transition duration-300 hover:-translate-y-1 hover:border-gold/40">
+        <div className="grid grid-cols-2 gap-3">
+          {Array.from({ length: totalSlots }).map((_, index) => {
+            const src = videoSources[index];
+
+            return src ? (
+              <div
+                key={`${tier.name}-${src}-${index}`}
+                className="relative overflow-hidden rounded-[1.1rem] border border-gold/15 bg-black/60"
+              >
+                <video
+                  className="h-28 w-full object-cover sm:h-32"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  src={src}
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,4,6,0.05),rgba(4,4,6,0.5)_72%,rgba(4,4,6,0.86))]" />
+              </div>
+            ) : (
+              <div
+                key={`${tier.name}-empty-${index}`}
+                className="relative h-28 overflow-hidden rounded-[1.1rem] border border-dashed border-gold/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.35))] sm:h-32"
+              />
+            );
+          })}
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article className="group rounded-[1.6rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(18,18,20,0.98),rgba(8,8,10,0.98))] p-6 shadow-[0_0_0_1px_rgba(212,175,55,0.05)] transition duration-300 hover:-translate-y-1 hover:border-gold/40">

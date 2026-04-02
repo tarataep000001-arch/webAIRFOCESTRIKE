@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { AircraftTierCard } from "@/components/aircraft-tier-card";
 import { FeatureCard } from "@/components/feature-card";
 import { PageHero } from "@/components/page-hero";
-import { PageSectionNav } from "@/components/page-section-nav";
 import { SectionTitle } from "@/components/section-title";
 import { aircraftTiers } from "@/data/aircraft";
-import { pageSections } from "@/data/page-sections";
 
 export const metadata: Metadata = {
   title: "Aircraft",
@@ -14,6 +12,24 @@ export const metadata: Metadata = {
 };
 
 export default function AircraftPage() {
+  const lootBoxes = [
+    {
+      title: "Box 1",
+      description: "สุ่มกล่องแรกสำหรับปลดล็อกเครื่องบินรุ่นอื่น",
+      src: "/videos/loot-boxes/box-1.mp4",
+    },
+    {
+      title: "Box 2",
+      description: "สุ่มกล่องที่สองสำหรับโอกาสรับรุ่นที่แตกต่างออกไป",
+      src: "/videos/loot-boxes/box-2.mp4",
+    },
+    {
+      title: "Box 3",
+      description: "สุ่มกล่องที่สามเพื่อเปิดทางไปยังเครื่องบินใหม่",
+      src: "/videos/loot-boxes/box-3.mp4",
+    },
+  ];
+
   return (
     <div className="space-y-20 pb-16">
       <PageHero
@@ -22,27 +38,7 @@ export default function AircraftPage() {
         description="Aircraft progression is one of the core systems of the game, and every tier should feel like a meaningful step forward."
         primaryCta={{ href: "/maps", label: "View Maps" }}
         secondaryCta={{ href: "/rewards", label: "View Rewards" }}
-      >
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-gold/15 bg-white/[0.03] p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/80">
-              Video previews
-            </p>
-            <p className="mt-2 text-sm leading-7 text-foreground-soft">
-              Each tier card now includes its own aircraft video preview so the
-              grade is easier to understand visually.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-gold/15 bg-white/[0.03] p-4 text-sm leading-7 text-foreground-soft">
-              Free to Special
-            </div>
-            <div className="rounded-2xl border border-gold/15 bg-white/[0.03] p-4 text-sm leading-7 text-foreground-soft">
-              Video per grade
-            </div>
-          </div>
-        </div>
-      </PageHero>
+      />
 
       <section className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(14,14,16,0.98),rgba(8,8,10,0.98))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:p-8">
@@ -50,31 +46,61 @@ export default function AircraftPage() {
             Short introduction
           </p>
           <p className="mt-4 max-w-4xl text-base leading-8 text-foreground-soft sm:text-lg">
-            AIR FORCE STRIKE uses aircraft tiers to make progression feel clear:
-            collect a better fighter, increase its power, and unlock stronger
-            missions as you climb the ladder.
+            ทุกคนจะได้รับเครื่องบินเริ่มต้น 1 ลำ และเครื่องบินรุ่นอื่นจะได้
+            จากการเปิดกล่องสุ่มเท่านั้น โดยมีกล่องให้สุ่ม 3 ใบ และสามารถ
+            อัปเกรดเพื่อเพิ่มพลังและปลดล็อกภารกิจที่แข็งแกร่งขึ้นได้
           </p>
         </div>
       </section>
 
-      <PageSectionNav
-        title="Aircraft page guide"
-        description="This guide separates the tier ladder, growth logic, and the role aircraft play in long-term progression."
-        sections={pageSections.aircraft}
-      />
-
       <section
-        id="tier-overview"
+        id="loot-boxes"
         className="mx-auto w-full max-w-7xl px-6 scroll-mt-28 sm:px-8 lg:px-10"
       >
         <SectionTitle
-          eyebrow="Tier overview"
-          title="Every aircraft grade is part of a clear progression ladder"
-          description="The ladder starts with Free and Common aircraft and climbs through Rare, Epic, Legendary, and Special."
+          eyebrow="กล่องสุ่ม"
+          title="เครื่องบินรุ่นอื่นมาจากกล่องสุ่ม 3 ใบเท่านั้น"
+          description="ผู้เล่นทุกคนเริ่มต้นด้วยเครื่องบิน 1 ลำ จากนั้นสามารถเปิดกล่องสุ่มทั้ง 3 ใบเพื่อหาเครื่องบินรุ่นอื่นและใช้ระบบอัปเกรดต่อยอดได้"
         />
-        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          {lootBoxes.map((box) => (
+            <article
+              key={box.title}
+              className="overflow-hidden rounded-[1.8rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(14,14,16,0.98),rgba(8,8,10,0.98))] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.4rem] border border-gold/15 bg-black/40">
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={box.src} type="video/mp4" />
+                </video>
+              </div>
+              <div className="mt-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
+                  {box.title}
+                </p>
+                <p className="mt-2 text-sm leading-7 text-foreground-soft">
+                  {box.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="mx-auto w-full max-w-7xl px-6 scroll-mt-28 sm:px-8 lg:px-10"
+        aria-label="Aircraft models"
+      >
+        <h2 className="sr-only">Aircraft models</h2>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {aircraftTiers.map((tier) => (
-            <AircraftTierCard key={tier.name} tier={tier} />
+            <AircraftTierCard key={tier.name} tier={tier} compact />
           ))}
         </div>
       </section>

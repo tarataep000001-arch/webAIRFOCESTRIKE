@@ -49,11 +49,6 @@ export const pageSections = {
       description: "The systems that define the experience.",
     },
     {
-      label: "Player Journey",
-      href: "#player-journey",
-      description: "How progression feels for new players.",
-    },
-    {
       label: "Progression Vision",
       href: "#progression-vision",
       description: "Why the game stays engaging over time.",
@@ -82,11 +77,6 @@ export const pageSections = {
     },
   ] satisfies PageSection[],
   aircraft: [
-    {
-      label: "Tier Overview",
-      href: "#tier-overview",
-      description: "The full aircraft ladder at a glance.",
-    },
     {
       label: "Upgrade Value",
       href: "#upgrade-value",
