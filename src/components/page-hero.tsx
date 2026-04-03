@@ -22,6 +22,12 @@ function isExternalHref(href: string) {
   return /^https?:\/\//i.test(href);
 }
 
+const primaryCtaClassName =
+  "inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-[0_14px_34px_rgba(220,38,38,0.28)] transition hover:-translate-y-0.5 hover:bg-red-500 sm:w-auto sm:tracking-[0.18em]";
+
+const secondaryCtaClassName =
+  "inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-[0_14px_34px_rgba(37,99,235,0.26)] transition hover:-translate-y-0.5 hover:bg-blue-500 sm:w-auto sm:tracking-[0.18em]";
+
 export function PageHero({
   eyebrow,
   title,
@@ -36,7 +42,12 @@ export function PageHero({
   function renderCta(href: string, className: string, label: string) {
     if (isExternalHref(href)) {
       return (
-        <a href={href} target="_blank" rel="noreferrer" className={className}>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={className}
+        >
           {label}
         </a>
       );
@@ -90,14 +101,14 @@ export function PageHero({
                 {primaryCta ? (
                   renderCta(
                     primaryCta.href,
-                    "inline-flex w-full items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-black transition hover:-translate-y-0.5 hover:bg-gold-light sm:w-auto sm:tracking-[0.18em]",
+                    primaryCtaClassName,
                     primaryCta.label,
                   )
                 ) : null}
                 {secondaryCta ? (
                   renderCta(
                     secondaryCta.href,
-                    "inline-flex w-full items-center justify-center rounded-full border border-gold/30 bg-white/[0.03] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-gold transition hover:-translate-y-0.5 hover:bg-gold/10 sm:w-auto sm:tracking-[0.18em]",
+                    secondaryCtaClassName,
                     secondaryCta.label,
                   )
                 ) : null}
