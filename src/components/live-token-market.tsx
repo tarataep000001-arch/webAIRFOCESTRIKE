@@ -60,49 +60,49 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
 
   return (
     <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
-      <div className="flex flex-col gap-3 border-b border-gold/15 pb-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="flex flex-col gap-3 border-b border-gold/15 pb-3 sm:flex-row sm:items-start sm:justify-between sm:pb-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/80 sm:text-xs sm:tracking-[0.4em]">
             Live trend panel
           </p>
-          <p className="mt-2 text-base font-semibold text-silver sm:text-xl">
+          <p className="mt-2 text-sm font-semibold text-silver sm:text-xl">
             {pair ? `${pair.baseTokenSymbol} / ${pair.quoteTokenSymbol}` : "Awaiting market data"}
           </p>
         </div>
-        <div className="flex w-fit items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
+        <div className="flex w-fit items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-300 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.22em]">
           <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.7)]" />
           Live
         </div>
       </div>
 
-      <div className="mt-5 grid gap-5">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mt-4 grid gap-4 sm:mt-5 sm:gap-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/70">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/70 sm:text-xs sm:tracking-[0.3em]">
               Current price
             </p>
-            <p className="mt-2 font-display text-3xl font-semibold tracking-[0.06em] text-silver sm:text-5xl sm:tracking-[0.08em]">
+            <p className="mt-1.5 font-display text-2xl font-semibold tracking-[0.05em] text-silver sm:mt-2 sm:text-5xl sm:tracking-[0.08em]">
               {pair?.priceUsd !== null && pair?.priceUsd !== undefined
                 ? formatUsd(Number(pair.priceUsd))
                 : "N/A"}
             </p>
-            <p className="mt-2 text-sm text-foreground-soft">
+            <p className="mt-1.5 text-xs text-foreground-soft sm:mt-2 sm:text-sm">
               {pair?.priceNative
                 ? `~ ${formatNativePrice(pair.priceNative)} ${pair.quoteTokenSymbol}`
                 : "Native price unavailable"}
             </p>
           </div>
-          <div className="rounded-2xl border border-gold/15 bg-white/[0.03] px-4 py-3 text-left sm:text-right">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/70">
+          <div className="rounded-2xl border border-gold/15 bg-white/[0.03] px-3 py-2.5 text-left sm:px-4 sm:py-3 sm:text-right">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/70 sm:text-[11px] sm:tracking-[0.28em]">
               Liquidity
             </p>
-            <p className="mt-2 text-lg font-semibold text-silver">
+            <p className="mt-1.5 text-base font-semibold text-silver sm:mt-2 sm:text-lg">
               {formatUsd(pair?.liquidityUsd, true)}
             </p>
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-4">
+        <div className="flex gap-2 overflow-x-auto pb-1 sm:grid sm:overflow-visible sm:pb-0 sm:grid-cols-4">
           {windows.map((window) => {
             const tone = getChangeTone(window.value);
             const valueText = formatPercent(window.value);
@@ -110,13 +110,13 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
             return (
               <div
                 key={window.key}
-                className="rounded-2xl border border-gold/15 bg-black/35 px-4 py-3"
+                className="min-w-[92px] shrink-0 rounded-2xl border border-gold/15 bg-black/35 px-3 py-2.5 sm:min-w-0 sm:px-4 sm:py-3"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/70">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/70 sm:text-[11px] sm:tracking-[0.28em]">
                   {window.label}
                 </p>
                 <p
-                  className={`mt-2 text-lg font-semibold ${
+                  className={`mt-1.5 text-sm font-semibold sm:mt-2 sm:text-lg ${
                     tone === "positive"
                       ? "text-emerald-300"
                       : tone === "negative"
@@ -131,21 +131,21 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
           })}
         </div>
 
-        <div className="rounded-[1.8rem] border border-gold/15 bg-[radial-gradient(circle_at_top,rgba(200,162,74,0.12),transparent_56%),linear-gradient(180deg,rgba(7,7,9,0.95),rgba(12,12,15,0.98))] p-4">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <div className="rounded-[1.8rem] border border-gold/15 bg-[radial-gradient(circle_at_top,rgba(200,162,74,0.12),transparent_56%),linear-gradient(180deg,rgba(7,7,9,0.95),rgba(12,12,15,0.98))] p-3 sm:p-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/70">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/70 sm:text-xs sm:tracking-[0.3em]">
                 การแสดงภาพการต่อสู้
               </p>
-              <p className="mt-1 text-sm text-foreground-soft">
+              <p className="mt-1 text-xs text-foreground-soft sm:text-sm">
                 นี่คือจุดเริ่มต้นของ V1 ที่เน้นทักษะและความเร็วในการกดเพื่อเอาชนะ
               </p>
             </div>
-            <div className="rounded-full border border-gold/15 bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/75 sm:block">
+            <div className="hidden rounded-full border border-gold/15 bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/75 sm:block">
               เตรียมอัปเดตสู่ V2
             </div>
           </div>
-          <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-gold/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.18))] p-3">
+          <div className="mt-3 overflow-hidden rounded-[1.5rem] border border-gold/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.18))] p-2.5 sm:mt-4 sm:p-3">
             <div className="relative h-52 rounded-[1.2rem] border border-white/5 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] sm:h-64">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(200,162,74,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(200,162,74,0.08)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-40" />
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
@@ -181,19 +181,19 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
                 />
                 <circle cx="100" cy="26" r="1.8" fill="#e0c06b" />
               </svg>
-              <div className="absolute bottom-4 left-4 rounded-full border border-gold/20 bg-black/65 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/80">
+              <div className="absolute bottom-3 left-3 rounded-full border border-gold/20 bg-black/65 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/80 sm:bottom-4 sm:left-4 sm:px-3 sm:text-[11px] sm:tracking-[0.28em]">
                 ภาพรวมเครื่องบิน
               </div>
             </div>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">
             {windows.map((window) => {
               const tone = getChangeTone(window.value);
               return (
                 <span
                   key={window.key}
-                  className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] ${
+                  className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] sm:px-3 sm:text-[11px] sm:tracking-[0.24em] ${
                     tone === "positive"
                       ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-300"
                       : tone === "negative"
@@ -263,19 +263,66 @@ function MarketTable({ pair }: { pair: MarketPairSummary | null }) {
         : "N/A",
     },
   ];
+  const compactRows = rows.slice(0, 5);
+  const extraRows = rows.slice(5);
 
   return (
     <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
       <div className="border-b border-gold/15 pb-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/80 sm:text-xs sm:tracking-[0.4em]">
           Aircraft balance table
         </p>
-        <p className="mt-2 text-sm leading-7 text-foreground-soft">
+        <p className="mt-2 text-xs leading-6 text-foreground-soft sm:text-sm sm:leading-7">
           Use this panel as a gameplay preview for aircraft ATK, battle rhythm, and future tuning across versions.
         </p>
       </div>
 
-      <div className="mt-5 overflow-hidden rounded-[1.5rem] border border-white/5 bg-black/35">
+      <div className="mt-4 grid gap-3 sm:hidden">
+        {compactRows.map((row) => (
+          <div
+            key={row.label}
+            className="rounded-2xl border border-white/5 bg-black/35 px-3 py-2.5"
+          >
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/70">
+              {row.label}
+            </p>
+            <p
+              className={`mt-1 text-sm font-medium ${
+                row.tone === "positive"
+                  ? "text-emerald-300"
+                  : row.tone === "negative"
+                    ? "text-red-300"
+                    : "text-silver"
+              }`}
+            >
+              {row.value}
+            </p>
+          </div>
+        ))}
+
+        {extraRows.length ? (
+          <details className="rounded-2xl border border-gold/15 bg-white/[0.03] px-3 py-2.5">
+            <summary className="cursor-pointer list-none text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/80 [&::-webkit-details-marker]:hidden">
+              More stats
+            </summary>
+            <div className="mt-3 grid gap-2">
+              {extraRows.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-xl border border-white/5 bg-black/25 px-3 py-2"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/65">
+                    {row.label}
+                  </p>
+                  <p className="mt-1 text-sm text-silver">{row.value}</p>
+                </div>
+              ))}
+            </div>
+          </details>
+        ) : null}
+      </div>
+
+      <div className="mt-5 hidden overflow-hidden rounded-[1.5rem] border border-white/5 bg-black/35 sm:block">
         <table className="w-full border-collapse">
           <tbody>
             {rows.map((row) => (
@@ -421,21 +468,21 @@ export function LiveTokenMarket() {
       title="เกมที่ใช้ทักษะในการกดและความเร็ว"
       description="นี่คือจุดเริ่มต้นของ V1 และใน V2 เราจะอัปเดตให้ใช้ทักษะมากขึ้น พร้อมเพิ่มด่านให้มากขึ้น โดยเครื่องบินแต่ละลำจะมีค่า ATK และจำนวนรอบที่ออกต่อสู้ไม่เท่ากัน"
     >
-      <div className="mb-6 flex flex-wrap items-center gap-3">
-        <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
+      <div className="mb-5 flex gap-2 overflow-x-auto pb-1 sm:mb-6 sm:flex-wrap sm:overflow-visible sm:pb-0 sm:gap-3">
+        <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.22em]">
           <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.7)]" />
           Live
         </span>
-        <span className="rounded-full border border-gold/20 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold/75">
+        <span className="shrink-0 rounded-full border border-gold/20 bg-white/[0.03] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/75 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.22em]">
           Token: {shortenAddress(TOKEN_ADDRESS)}
         </span>
-        <span className="rounded-full border border-gold/20 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold/75">
+        <span className="shrink-0 rounded-full border border-gold/20 bg-white/[0.03] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/75 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.22em]">
           Chain: World Chain
         </span>
-        <span className="rounded-full border border-gold/20 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold/75">
+        <span className="shrink-0 rounded-full border border-gold/20 bg-white/[0.03] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/75 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.22em]">
           Refreshes every 15s
         </span>
-        <span className="rounded-full border border-gold/20 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold/75">
+        <span className="shrink-0 rounded-full border border-gold/20 bg-white/[0.03] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/75 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.22em]">
           {data?.pairCount ? `${data.pairCount} pair${data.pairCount === 1 ? "" : "s"} found` : "World Chain market"}
         </span>
       </div>
