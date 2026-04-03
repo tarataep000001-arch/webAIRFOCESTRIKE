@@ -31,7 +31,7 @@ export default function AircraftPage() {
   ];
 
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 pb-16 sm:space-y-20">
       <PageHero
         eyebrow="Aircraft roster"
         title="Rarity tiers that shape the entire experience"

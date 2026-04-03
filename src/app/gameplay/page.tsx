@@ -41,7 +41,7 @@ const missionSteps = [
 
 export default function GameplayPage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 pb-16 sm:space-y-20">
       <PageHero
         eyebrow="Gameplay system"
         title="Simple to understand, premium to experience"

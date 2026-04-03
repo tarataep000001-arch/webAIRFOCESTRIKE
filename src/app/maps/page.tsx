@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function MapsPage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 pb-16 sm:space-y-20">
       <PageHero
         eyebrow="Mission maps"
         title="Structured combat zones that make progression feel premium"

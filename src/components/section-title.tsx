@@ -17,14 +17,14 @@ export function SectionTitle({
 
   return (
     <header className={`flex max-w-3xl flex-col gap-4 ${alignment}`}>
-      <p className="text-xs font-semibold uppercase tracking-[0.45em] text-gold/90">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold/90 sm:text-xs sm:tracking-[0.45em]">
         {eyebrow}
       </p>
-      <h2 className="text-balance font-display text-3xl font-semibold tracking-[0.08em] text-silver sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance font-display text-2xl font-semibold tracking-[0.06em] text-silver sm:text-4xl sm:tracking-[0.08em] lg:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="max-w-2xl text-base leading-7 text-foreground-soft sm:text-lg">
+        <p className="max-w-2xl text-sm leading-7 text-foreground-soft sm:text-lg sm:leading-8">
           {description}
         </p>
       ) : null}

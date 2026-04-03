@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RewardsPage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 pb-16 sm:space-y-20">
       <PageHero
         eyebrow="Rewards and growth"
         title="Progress should feel steady, valuable, and premium"

@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,186,64,0.22),transparent_30%),radial-gradient(circle_at_75%_18%,rgba(255,93,93,0.12),transparent_24%)]" />
       </div>
 
-      <div className="relative z-10 space-y-20 pb-20">
+      <div className="relative z-10 space-y-16 pb-16 sm:space-y-20 sm:pb-20">
         <Hero
           title={
             <>
@@ -42,6 +42,14 @@ export default function HomePage() {
             </>
           }
           description="A premium air combat experience built around skill, speed, aircraft progression, and rewards."
+          primaryCta={{
+            href: "https://worldcoin.org/mini-app?app_id=app_ff94eb3c9f066cfbd8aa1308980d846e&app_mode=mini-app",
+            label: "เข้าเกม",
+          }}
+          secondaryCta={{
+            href: "https://t.me/+wobUKO2idyViMmU1",
+            label: "Telegram",
+          }}
         />
 
         <LiveTokenMarket />

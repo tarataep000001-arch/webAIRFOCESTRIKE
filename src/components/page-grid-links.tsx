@@ -21,15 +21,15 @@ export function PageGridLinks({
 }: PageGridLinksProps) {
   return (
     <section className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
-      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(14,14,16,0.98),rgba(8,8,10,0.98))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:p-8">
+      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(14,14,16,0.98),rgba(8,8,10,0.98))] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:p-8">
         <div className="max-w-3xl border-b border-gold/15 pb-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.45em] text-gold/85">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold/85 sm:text-xs sm:tracking-[0.45em]">
             {label}
           </p>
-          <h2 className="mt-4 text-balance font-display text-3xl font-semibold tracking-[0.08em] text-silver sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 text-balance font-display text-2xl font-semibold tracking-[0.06em] text-silver sm:text-4xl sm:tracking-[0.08em] lg:text-5xl">
             {title}
           </h2>
-          <p className="mt-4 text-base leading-8 text-foreground-soft sm:text-lg">
+          <p className="mt-4 text-sm leading-7 text-foreground-soft sm:text-lg sm:leading-8">
             {description}
           </p>
         </div>
@@ -38,7 +38,7 @@ export function PageGridLinks({
             <Link
               key={item.href}
               href={item.href}
-              className="group rounded-[1.5rem] border border-gold/20 bg-white/[0.03] p-5 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:bg-white/[0.05]"
+              className="group rounded-[1.5rem] border border-gold/20 bg-white/[0.03] p-4 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:bg-white/[0.05] sm:p-5"
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-gold/75">
                 Open page

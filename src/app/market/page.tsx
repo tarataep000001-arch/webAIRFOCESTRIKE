@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MarketPage() {
   return (
-    <div className="space-y-16 pb-16">
+    <div className="space-y-14 pb-16 sm:space-y-16">
       <PageHero
         eyebrow="Live market"
         title="Premium market view for the AIR FORCE STRIKE token"

@@ -33,7 +33,7 @@ const journeyCards = [
 
 export default function AboutPage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 pb-16 sm:space-y-20">
       <PageHero
         eyebrow="About AIR FORCE STRIKE"
         title="A progression-based air combat game designed to feel elite"

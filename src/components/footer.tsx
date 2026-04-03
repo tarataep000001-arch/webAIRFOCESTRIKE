@@ -6,9 +6,9 @@ export function Footer() {
 
   return (
     <footer className="border-t border-gold/15 bg-black/95">
-      <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 py-10 sm:px-8 lg:grid-cols-[1.3fr_0.7fr] lg:px-10">
+      <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:px-8 lg:grid-cols-[1.3fr_0.7fr] lg:px-10">
         <div className="space-y-4">
-          <p className="font-display text-2xl font-semibold tracking-[0.16em] sm:text-3xl">
+          <p className="font-display text-xl font-semibold tracking-[0.14em] sm:text-3xl sm:tracking-[0.16em]">
             <span className="text-silver">AIR FORCE</span>{" "}
             <span className="text-strike">STRIKE</span>
           </p>

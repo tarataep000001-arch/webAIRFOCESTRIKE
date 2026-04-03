@@ -17,14 +17,14 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <article
-      className={`group rounded-[1.6rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(17,17,19,0.98),rgba(10,10,12,0.98))] p-6 shadow-[0_0_0_1px_rgba(212,175,55,0.04)] transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_0_0_1px_rgba(212,175,55,0.1)] ${className}`.trim()}
+      className={`group rounded-[1.6rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(17,17,19,0.98),rgba(10,10,12,0.98))] p-4 shadow-[0_0_0_1px_rgba(212,175,55,0.04)] transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_0_0_1px_rgba(212,175,55,0.1)] sm:p-6 ${className}`.trim()}
     >
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold/80">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/80 sm:text-xs sm:tracking-[0.35em]">
           {eyebrow}
         </p>
       ) : null}
-      <h3 className="mt-3 font-display text-2xl font-semibold tracking-[0.06em] text-silver">
+      <h3 className="mt-3 font-display text-xl font-semibold tracking-[0.05em] text-silver sm:text-2xl sm:tracking-[0.06em]">
         {title}
       </h3>
       <p className="mt-3 text-sm leading-7 text-foreground-soft sm:text-base">

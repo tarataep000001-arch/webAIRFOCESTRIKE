@@ -76,7 +76,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${cinzel.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen bg-background text-foreground">
+      <body className="min-h-screen bg-background text-[15px] text-foreground sm:text-base">
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>

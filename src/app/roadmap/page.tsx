@@ -153,7 +153,7 @@ const roadmapPhases: RoadmapPhase[] = [
 
 export default function RoadmapPage() {
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-16 pb-16 sm:space-y-20">
       <PageHero
         eyebrow="Roadmap"
         title="ROADMAP - AIR FORCE STRIKE (AFS)"

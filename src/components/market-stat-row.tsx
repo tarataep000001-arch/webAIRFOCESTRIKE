@@ -17,14 +17,14 @@ export function MarketStatRow({
         : "text-silver";
 
   return (
-    <tr className="border-b border-white/5 last:border-0">
+    <tr className="block border-b border-white/5 last:border-0 sm:table-row">
       <th
         scope="row"
-        className="w-[40%] px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/75 sm:w-[34%]"
+        className="block px-4 pb-1 pt-3 text-left text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/75 sm:table-cell sm:w-[34%] sm:px-4 sm:py-3 sm:text-[11px] sm:tracking-[0.28em]"
       >
         {label}
       </th>
-      <td className={`px-4 py-3 text-right text-sm font-medium ${valueTone}`}>
+      <td className={`block px-4 pb-3 text-left text-sm font-medium sm:table-cell sm:px-4 sm:py-3 sm:text-right ${valueTone}`}>
         {value}
       </td>
     </tr>

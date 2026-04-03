@@ -18,6 +18,10 @@ type PageHeroProps = {
   children?: ReactNode;
 };
 
+function isExternalHref(href: string) {
+  return /^https?:\/\//i.test(href);
+}
+
 export function PageHero({
   eyebrow,
   title,
@@ -28,6 +32,22 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   const hasAside = showAside && children !== null && children !== undefined;
+
+  function renderCta(href: string, className: string, label: string) {
+    if (isExternalHref(href)) {
+      return (
+        <a href={href} target="_blank" rel="noreferrer" className={className}>
+          {label}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={href} className={className}>
+        {label}
+      </Link>
+    );
+  }
 
   return (
     <section className="relative isolate overflow-hidden">
@@ -47,7 +67,7 @@ export function PageHero({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,186,64,0.2),transparent_30%),radial-gradient(circle_at_75%_18%,rgba(255,93,93,0.1),transparent_24%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 lg:px-10 lg:py-16">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-16">
         <div
           className={
             hasAside
@@ -55,39 +75,37 @@ export function PageHero({
               : "grid gap-8"
           }
         >
-          <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.45em] text-gold/90">
+          <div className="space-y-5 sm:space-y-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold/90 sm:text-xs sm:tracking-[0.45em]">
               {eyebrow}
             </p>
-            <h1 className="text-balance font-display text-4xl font-semibold uppercase tracking-[0.12em] text-silver sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance font-display text-3xl font-semibold uppercase tracking-[0.08em] text-silver sm:text-5xl sm:tracking-[0.12em] lg:text-6xl">
               {title}
             </h1>
-            <p className="max-w-2xl text-base leading-8 text-foreground-soft sm:text-lg">
+            <p className="max-w-2xl text-sm leading-7 text-foreground-soft sm:text-lg sm:leading-8">
               {description}
             </p>
             {primaryCta || secondaryCta ? (
               <div className="flex flex-col gap-3 sm:flex-row">
                 {primaryCta ? (
-                  <Link
-                    href={primaryCta.href}
-                    className="inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black transition hover:-translate-y-0.5 hover:bg-gold-light"
-                  >
-                    {primaryCta.label}
-                  </Link>
+                  renderCta(
+                    primaryCta.href,
+                    "inline-flex w-full items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-black transition hover:-translate-y-0.5 hover:bg-gold-light sm:w-auto sm:tracking-[0.18em]",
+                    primaryCta.label,
+                  )
                 ) : null}
                 {secondaryCta ? (
-                  <Link
-                    href={secondaryCta.href}
-                    className="inline-flex items-center justify-center rounded-full border border-gold/30 bg-white/[0.03] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-gold transition hover:-translate-y-0.5 hover:bg-gold/10"
-                  >
-                    {secondaryCta.label}
-                  </Link>
+                  renderCta(
+                    secondaryCta.href,
+                    "inline-flex w-full items-center justify-center rounded-full border border-gold/30 bg-white/[0.03] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-gold transition hover:-translate-y-0.5 hover:bg-gold/10 sm:w-auto sm:tracking-[0.18em]",
+                    secondaryCta.label,
+                  )
                 ) : null}
               </div>
             ) : null}
           </div>
           {hasAside ? (
-            <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(15,15,17,0.98),rgba(8,8,10,0.98))] p-5 shadow-[0_24px_72px_rgba(0,0,0,0.5)]">
+            <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(15,15,17,0.98),rgba(8,8,10,0.98))] p-4 shadow-[0_24px_72px_rgba(0,0,0,0.5)] sm:p-5">
               {children}
             </div>
           ) : null}

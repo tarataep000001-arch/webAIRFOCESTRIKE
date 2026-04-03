@@ -21,11 +21,11 @@ export function InfoBlock({
   const content = (
     <>
       {eyebrow ? (
-        <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-gold/75">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/75 sm:text-[11px] sm:tracking-[0.32em]">
           {eyebrow}
         </p>
       ) : null}
-      <h3 className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-silver">
+      <h3 className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-silver sm:text-sm sm:tracking-[0.18em]">
         {title}
       </h3>
       <p className="mt-2 text-sm leading-6 text-foreground-soft">{description}</p>

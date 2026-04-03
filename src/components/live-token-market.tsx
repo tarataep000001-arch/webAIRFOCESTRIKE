@@ -59,29 +59,29 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
   const path = buildTrendPath(pair);
 
   return (
-    <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-5 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
-      <div className="flex items-start justify-between gap-4 border-b border-gold/15 pb-4">
+    <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
+      <div className="flex flex-col gap-3 border-b border-gold/15 pb-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
             Live trend panel
           </p>
-          <p className="mt-2 text-lg font-semibold text-silver sm:text-xl">
+          <p className="mt-2 text-base font-semibold text-silver sm:text-xl">
             {pair ? `${pair.baseTokenSymbol} / ${pair.quoteTokenSymbol}` : "Awaiting market data"}
           </p>
         </div>
-        <div className="flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
+        <div className="flex w-fit items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
           <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.7)]" />
           Live
         </div>
       </div>
 
       <div className="mt-5 grid gap-5">
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/70">
               Current price
             </p>
-            <p className="mt-2 font-display text-4xl font-semibold tracking-[0.08em] text-silver sm:text-5xl">
+            <p className="mt-2 font-display text-3xl font-semibold tracking-[0.06em] text-silver sm:text-5xl sm:tracking-[0.08em]">
               {pair?.priceUsd !== null && pair?.priceUsd !== undefined
                 ? formatUsd(Number(pair.priceUsd))
                 : "N/A"}
@@ -92,7 +92,7 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
                 : "Native price unavailable"}
             </p>
           </div>
-          <div className="rounded-2xl border border-gold/15 bg-white/[0.03] px-4 py-3 text-right">
+          <div className="rounded-2xl border border-gold/15 bg-white/[0.03] px-4 py-3 text-left sm:text-right">
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/70">
               Liquidity
             </p>
@@ -132,7 +132,7 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
         </div>
 
         <div className="rounded-[1.8rem] border border-gold/15 bg-[radial-gradient(circle_at_top,rgba(200,162,74,0.12),transparent_56%),linear-gradient(180deg,rgba(7,7,9,0.95),rgba(12,12,15,0.98))] p-4">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold/70">
                 การแสดงภาพการต่อสู้
@@ -141,12 +141,12 @@ function TrendPanel({ pair }: { pair: MarketPairSummary | null }) {
                 นี่คือจุดเริ่มต้นของ V1 ที่เน้นทักษะและความเร็วในการกดเพื่อเอาชนะ
               </p>
             </div>
-            <div className="hidden rounded-full border border-gold/15 bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/75 sm:block">
+            <div className="rounded-full border border-gold/15 bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold/75 sm:block">
               เตรียมอัปเดตสู่ V2
             </div>
           </div>
           <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-gold/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.18))] p-3">
-            <div className="relative h-64 rounded-[1.2rem] border border-white/5 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))]">
+            <div className="relative h-52 rounded-[1.2rem] border border-white/5 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] sm:h-64">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(200,162,74,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(200,162,74,0.08)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-40" />
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <svg
@@ -265,7 +265,7 @@ function MarketTable({ pair }: { pair: MarketPairSummary | null }) {
   ];
 
   return (
-    <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-5 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
+    <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6">
       <div className="border-b border-gold/15 pb-4">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
           Aircraft balance table
@@ -296,13 +296,13 @@ function MarketTable({ pair }: { pair: MarketPairSummary | null }) {
 function LoadingState() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-6">
+      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 sm:p-6">
         <div className="h-4 w-40 animate-pulse rounded-full bg-white/10" />
         <div className="mt-4 h-12 w-3/4 animate-pulse rounded-2xl bg-white/10" />
         <div className="mt-4 h-6 w-1/2 animate-pulse rounded-full bg-white/10" />
         <div className="mt-6 h-64 animate-pulse rounded-[1.5rem] border border-white/5 bg-white/5" />
       </div>
-      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-6">
+      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 sm:p-6">
         <div className="h-4 w-44 animate-pulse rounded-full bg-white/10" />
         <div className="mt-5 space-y-3">
           {Array.from({ length: 12 }).map((_, index) => (
@@ -317,7 +317,7 @@ function LoadingState() {
 function ErrorState({ message, onRetry }: { message: string; onRetry: () => void }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-6">
+      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold/80">
           Live market temporarily unavailable
         </p>
@@ -343,7 +343,7 @@ function ErrorState({ message, onRetry }: { message: string; onRetry: () => void
           </Link>
         </div>
       </div>
-      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-6">
+      <div className="rounded-[2rem] border border-gold/20 bg-[linear-gradient(180deg,rgba(12,12,15,0.98),rgba(8,8,10,0.98))] p-4 sm:p-6">
         <div className="h-4 w-44 rounded-full bg-white/10" />
         <div className="mt-5 h-64 rounded-[1.5rem] border border-white/5 bg-white/5" />
       </div>
